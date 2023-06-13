@@ -1,32 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rev_rotate.c                                       :+:      :+:    :+:   */
+/*   rrr.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/06 04:14:44 by oredoine          #+#    #+#             */
-/*   Updated: 2023/06/13 01:46:00 by oredoine         ###   ########.fr       */
+/*   Created: 2023/06/12 18:38:26 by oredoine          #+#    #+#             */
+/*   Updated: 2023/06/13 01:46:18 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void reverse_rotate(t_llist **head, int flag)
+void rrr(t_llist **stack_a, t_llist **stack_b)
 {
-    t_llist *temp;
-    t_llist *temp2;
-
-    temp = *head;
-    temp2 = ft_lstlast(*head);
-    while (temp->next->next)
-        temp = temp->next;
-    temp->next = NULL;
-    ft_lstadd_front(head,temp2);
-    if(flag == 1)
-        write(1,"rra\n",4);
-    if(flag == 2)
-        write(1,"rrb\n",4);
-    else
-        return ;
+    reverse_rotate(stack_a, 0);
+    reverse_rotate(stack_b, 0);
+    write(1,"rrr\n",4);
 }

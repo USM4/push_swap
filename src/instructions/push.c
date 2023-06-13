@@ -6,24 +6,24 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 22:42:53 by oredoine          #+#    #+#             */
-/*   Updated: 2023/06/06 13:56:34 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/06/13 00:34:46 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_llist *push_to_stack(t_llist **src, t_llist *dest)
+void    push_to_stack(t_llist **src, t_llist **dst, int flag)
 {
-    t_llist *temp;
+    t_llist *tmp;
 
     if(!(*src))
-    {
-        ft_putstr_fd("empty stack\n",2);
-        exit(1);
-    }
-    temp = *src;
+        return ;
+    tmp = *src;
     (*src) = (*src)->next;
-    ft_lstadd_front(&dest,ft_lstnew(temp->nbr));
-    free(temp);
-    return(dest);
+    ft_lstadd_front(dst, ft_lstnew(tmp->nbr));
+    free(tmp);
+    if(flag == 1)
+        write(1,"pb\n",3);
+    else
+        write(1,"pa\n",3);  
 }
