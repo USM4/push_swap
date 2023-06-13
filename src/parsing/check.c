@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 17:11:26 by oredoine          #+#    #+#             */
-/*   Updated: 2023/06/08 17:13:26 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/06/13 21:16:58 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int ft_check_number(char *num)
     i = 0;
     while (num[i])
     {   
-        if((num[0] == '-' || num[0] == '+') && i == 0)
+        if((num[0] == '-' || num[0] == '+') && i == 0 && ft_isdigit(num[i + 1]))
             i++;
         else if(ft_isdigit(num[i]))
             i++;
@@ -85,7 +85,7 @@ int check_is_duplicated(t_llist *head)
 		long x = ft_atoi(arr[i]);
 		if (x < INT_MIN || x > INT_MAX)
 		{
-			printf("MAX or MIN\n");
+			ft_putstr_fd("MAX or MIN\n", 2);
 			break;
 		}
         ft_lstadd_back(&head ,ft_lstnew(x));

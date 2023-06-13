@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 02:05:31 by oredoine          #+#    #+#             */
-/*   Updated: 2023/06/13 00:53:43 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/06/13 18:46:09 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ extern  t_llist	*ft_lstnew(int nbr);
 extern  void    ft_lstclear(t_llist **lst);
 extern  void    ft_lstdelone(t_llist *lst);
 extern  void    ft_lstadd_back(t_llist **lst, t_llist *new);
-extern  t_llist	*swap_first_e(t_llist *head, int flag);
+extern  void    swap_first_e(t_llist **head, int flag);
 extern  void 	print_list(t_llist *head); 
 extern  void    push_to_stack(t_llist **src, t_llist **dst, int flag);
 extern  void     ft_lstadd_front(t_llist **lst, t_llist *new); 

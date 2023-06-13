@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 19:46:12 by oredoine          #+#    #+#             */
-/*   Updated: 2023/06/13 01:38:53 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/06/13 18:44:48 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,16 @@ void    sort_three(t_llist **stack_a)
         reverse_rotate(stack_a, 1);
     else if ((*stack_a)->nbr < (*stack_a)->next->nbr && (*stack_a)->next->nbr > (*stack_a)->next->next->nbr && (*stack_a)->nbr < (*stack_a)->next->next->nbr )
     {
-        (*stack_a) = swap_first_e((*stack_a), 1);
+        swap_first_e(stack_a, 1);
         rotate_stack(stack_a, 1);
     }
     else if ((*stack_a)->nbr > (*stack_a)->next->nbr && (*stack_a)->next->nbr > (*stack_a)->next->next->nbr)
     {
-        (*stack_a) = swap_first_e((*stack_a), 1);
+        swap_first_e(stack_a, 1);
         reverse_rotate(stack_a, 1);
     }
     else if ((*stack_a)->nbr > (*stack_a)->next->nbr && (*stack_a)->next->nbr < (*stack_a)->next->next->nbr && (*stack_a)->nbr < (*stack_a)->next->next->nbr)
-        (*stack_a) = swap_first_e((*stack_a), 1);
+        swap_first_e(stack_a, 1);
     else if ((*stack_a)->nbr > (*stack_a)->next->nbr && (*stack_a)->next->nbr < (*stack_a)->next->next->nbr)
         rotate_stack(stack_a, 1);
 }

@@ -6,12 +6,16 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 02:08:10 by oredoine          #+#    #+#             */
-/*   Updated: 2023/06/13 01:39:57 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/06/13 21:14:28 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void leaks(void)
+{
+    system("leaks push_swap");
+}
 void print_list(t_llist *head)
 {
     while (head)
@@ -23,22 +27,6 @@ void print_list(t_llist *head)
     }
     printf("\n");
 }
-
-// int min_index(int *tab, int size)
-// {
-//     int i;
-//     i = 1;
-//     int min = 0;
-//     if (!size)
-//         return (0);
-//     while(i < size)
-//     {
-//         if(tab[i] < tab[min]) 
-//             min = i;
-//         i++;
-//     }
-//     return (min);
-// }
 
 int abs(int n)
 {
@@ -122,13 +110,14 @@ void execute_best_move(t_llist **stack_a, t_llist **stack_b, t_moves best_move)
     }
     push_to_stack(stack_b, stack_a, 2);
 }
+
 void rotate_to_top(t_llist **stack_x, int nbr, int flag)
 {
-    int x = get_moves_to_top(*stack_x, nbr) ;
+    int x = get_moves_to_top(*stack_x, nbr);
     while (x > 0)
     {
         rotate_stack(stack_x, flag);
-        x--;   
+        x--;
     }
     while (x < 0)
     {
@@ -136,23 +125,6 @@ void rotate_to_top(t_llist **stack_x, int nbr, int flag)
         x++;
     }
 }
-// void   unit(t_llist *stack_a, t_llist *stack_b)
-// {
-//     t_llist *tempo;
-//     int *tab;
-//     tab = malloc(sizeof(int) * ft_lstsize(stack_b));
-//     int i = 0;
-//     int size = ft_lstsize(stack_b);
-//     tempo = stack_b;
-//     while(i < size)
-//     {
-//         tab[i]= get_moves_to_top(tempo, stack_b->nbr) + get_moves_to_top(stack_a, get_upper_bound(stack_a, stack_b->nbr));
-//         printf("stack content : %d  ",stack_b->nbr);
-//         printf("moves : %d\n   ",tab[i]);
-//         stack_b = stack_b->next;
-//         i++;
-//     }
-// }
 
 int main(int ac, char **av)
 {
@@ -164,7 +136,7 @@ int main(int ac, char **av)
     i = 1;
     if (ac <= 1)
     {
-        ft_putstr_fd("Wrong number of arguments", 2);
+        ft_putstr_fd("Error\nWrong number of arguments", 2);
         exit(1);
     }
 
@@ -179,16 +151,40 @@ int main(int ac, char **av)
 
 	if (ft_lstsize(stack_a) == 1)
 	{
-        ft_putstr_fd("One number is not enough\n", 2);
+        ft_putstr_fd("Error\nOne number is not enough\n", 2);
 		exit(1);
 	}
 
-    if (check_is_sorted(stack_a) || check_is_duplicated(stack_a))
+    if (check_is_sorted(stack_a))
     {
-        ft_putstr_fd("ALREADY SORTED OR DUPLICATED NUMBERS\n",2);
+        ft_putstr_fd("Error\nALREADY SORTED\n",2);
         exit(1);
     }
     
+    if( check_is_duplicated(stack_a))
+    {
+        ft_putstr_fd("Error\nDUPLICATED NUMBERS\n",2);
+        exit(1);
+    }
+    
+    if(ft_lstsize(stack_a) == 2)
+        swap_first_e(&stack_a, 1);
+    else if (ft_lstsize(stack_a) == 3)
+        sort_three(&stack_a);
+    else if (ft_lstsize(stack_a) == 4)
+        sort_four(&stack_a, &stack_b);
+    else if (ft_lstsize(stack_a) == 5)
+        sort_five(&stack_a, &stack_b);
+    else if (ft_lstsize(stack_a) > 5)
+    {
+        // while (ft_lstsize(stack_a) > 1)
+        //     push_to_stack(&stack_a, &stack_b, 1);
+        push_all(&stack_a, &stack_b);
+        while (stack_b)
+            execute_best_move(&stack_a, &stack_b, find_best_move(stack_a, stack_b));
+    rotate_to_top(&stack_a, ll_min(stack_a), 1);
+    atexit(leaks);
+    }
     // stack_a = swap_first_e(stack_a);
     // puts("THIRD PRINT");
     // stack_a = sort_three(stack_a);
@@ -196,11 +192,6 @@ int main(int ac, char **av)
     // print_list(stack_a);
     // printf("stack b: ");
     // print_list(stack_b);
-    while (ft_lstsize(stack_a) > 1)
-        push_to_stack(&stack_a, &stack_b, 1);
-    while (stack_b)
-        execute_best_move(&stack_a, &stack_b, find_best_move(stack_a, stack_b));
-    rotate_to_top(&stack_a, ll_min(stack_a), 1);
     // printf("\n\n");
     // printf("stack a: ");
     // print_list(stack_a);
