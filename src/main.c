@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 02:08:10 by oredoine          #+#    #+#             */
-/*   Updated: 2023/06/13 21:14:28 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/06/14 02:53:35 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void leaks(void)
 {
     system("leaks push_swap");
 }
+
 void print_list(t_llist *head)
 {
     while (head)
@@ -125,13 +126,25 @@ void rotate_to_top(t_llist **stack_x, int nbr, int flag)
         x++;
     }
 }
+void	ft_clean(char **arr)
+{
+	int	i;
+
+	i = 0;
+	while (arr[i])
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
+}
 
 int main(int ac, char **av)
 {
     int i;
     t_llist *stack_a = NULL;
-    t_llist *stack_b = NULL;
-    char **arr;
+    // t_llist *stack_b = NULL;
+    char **arr = NULL;
 
     i = 1;
     if (ac <= 1)
@@ -143,12 +156,11 @@ int main(int ac, char **av)
     while (i < ac)
     {
         arr = ft_split(av[i], ' ');
-		check_is_clear_number(arr);
-        stack_a = create_llist(stack_a, arr);
-        // stack_b = create_llist(stack_a, arr);
+        check_is_clear_number(arr);
+        create_llist(&stack_a, arr);
         i++;
     }
-
+    print_list(stack_a);
 	if (ft_lstsize(stack_a) == 1)
 	{
         ft_putstr_fd("Error\nOne number is not enough\n", 2);
@@ -169,22 +181,26 @@ int main(int ac, char **av)
     
     if(ft_lstsize(stack_a) == 2)
         swap_first_e(&stack_a, 1);
-    else if (ft_lstsize(stack_a) == 3)
-        sort_three(&stack_a);
-    else if (ft_lstsize(stack_a) == 4)
-        sort_four(&stack_a, &stack_b);
-    else if (ft_lstsize(stack_a) == 5)
-        sort_five(&stack_a, &stack_b);
-    else if (ft_lstsize(stack_a) > 5)
-    {
-        // while (ft_lstsize(stack_a) > 1)
-        //     push_to_stack(&stack_a, &stack_b, 1);
-        push_all(&stack_a, &stack_b);
-        while (stack_b)
-            execute_best_move(&stack_a, &stack_b, find_best_move(stack_a, stack_b));
-    rotate_to_top(&stack_a, ll_min(stack_a), 1);
-    atexit(leaks);
-    }
+    
+    ft_clean(arr);
+    ft_lstclear(&stack_a);
+    // ft_lstclear(&stack_a);
+    // ft_lstclear(&stack_a);
+    // else if (ft_lstsize(stack_a) == 3)
+    //     sort_three(&stack_a);
+    // else if (ft_lstsize(stack_a) == 4)
+    //     sort_four(&stack_a, &stack_b);
+    // else if (ft_lstsize(stack_a) == 5)
+    //     sort_five(&stack_a, &stack_b);
+    // else if (ft_lstsize(stack_a) > 5)
+    // {
+    //     // while (ft_lstsize(stack_a) > 1)
+    //     //     push_to_stack(&stack_a, &stack_b, 1);
+    //     push_all(&stack_a, &stack_b);
+    //     while (stack_b)
+    //         execute_best_move(&stack_a, &stack_b, find_best_move(stack_a, stack_b));
+    // rotate_to_top(&stack_a, ll_min(stack_a), 1);
+    // }
     // stack_a = swap_first_e(stack_a);
     // puts("THIRD PRINT");
     // stack_a = sort_three(stack_a);
@@ -197,4 +213,6 @@ int main(int ac, char **av)
     // print_list(stack_a);
     // printf("stack b: ");
     // print_list(stack_b);
+
+    atexit(leaks);
 }

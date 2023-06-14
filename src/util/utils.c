@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 19:42:41 by oredoine          #+#    #+#             */
-/*   Updated: 2023/06/08 19:48:02 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/06/13 23:13:29 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void check_is_clear_number(char **str)
 			i++;
 		else
 		{
-			ft_putstr_fd("Wrong type form of number", 2);
+			ft_putstr_fd("Error\nWrong type form of number", 2);
 			exit(1);
 		}
 	}

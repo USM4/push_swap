@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 17:11:26 by oredoine          #+#    #+#             */
-/*   Updated: 2023/06/13 21:16:58 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/06/14 02:53:24 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,17 +75,19 @@ int check_is_duplicated(t_llist *head)
     return(0);
 }
  
- t_llist *create_llist(t_llist *head, char **arr)
+void    create_llist(t_llist **head, char **arr)
 {
     int i;
-    
+    long x;
+
+    x = 0;
     i = 0;
     while (arr[i])
     {
-		long x = ft_atoi(arr[i]);
-		if (x < INT_MIN || x > INT_MAX)
+		x = ft_atoi(arr[i]);
+        if (x < INT_MIN || x > INT_MAX)
 		{
-			ft_putstr_fd("MAX or MIN\n", 2);
+			ft_putstr_fd("Error\nMAX or MIN\n", 2);
 			break;
 		}
         ft_lstadd_back(&head ,ft_lstnew(x));
