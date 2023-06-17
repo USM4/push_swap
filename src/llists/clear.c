@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 21:22:39 by oredoine          #+#    #+#             */
-/*   Updated: 2023/06/14 01:38:38 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/06/17 02:05:13 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ void	ft_lstclear(t_llist **lst)
 		free(*lst);
 		*lst = tmp;
 	}
-	// *lst = NULL;
+	*lst = NULL;
 }

@@ -6,36 +6,33 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 19:42:41 by oredoine          #+#    #+#             */
-/*   Updated: 2023/06/13 23:13:29 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/06/17 02:11:21 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int the_smallest(t_llist *head)
+int	the_smallest(t_llist *head)
 {
-    t_llist *current;
-    int smallest;
+	t_llist	*current;
+	int		smallest;
 
-    smallest = head->nbr;
-    current = head;
-
-    while (current)
-    {
-        if (current->nbr < smallest)
-            smallest = current->nbr;
-        current = current->next;
-    }
-    
-    return(smallest);
+	smallest = head->nbr;
+	current = head;
+	while (current)
+	{
+		if (current->nbr < smallest)
+			smallest = current->nbr;
+		current = current->next;
+	}
+	return (smallest);
 }
 
-void check_is_clear_number(char **str)
+void	check_is_clear_number(char **str)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
-	
 	while (str[i])
 	{
 		if (ft_check_number(str[i]) == 1)

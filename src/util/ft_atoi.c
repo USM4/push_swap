@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 18:38:54 by oredoine          #+#    #+#             */
-/*   Updated: 2023/06/03 21:33:20 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/06/17 02:08:36 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 long	ft_atoi(char *str)
 {
-	int	i;
+	int		i;
 	long	x;
-	int	s;
+	int		s;
 
 	i = 0;
 	x = 0;

@@ -6,13 +6,13 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 17:11:26 by oredoine          #+#    #+#             */
-/*   Updated: 2023/06/14 02:53:24 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/06/17 01:55:21 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_isdigit (int a)
+int	ft_isdigit(int a) 
 {
 	if (a >= 48 && a <= 57)
 		return (1);
@@ -20,78 +20,79 @@ int	ft_isdigit (int a)
 		return (0);
 }
 
-int ft_check_number(char *num)
+int	ft_check_number(char *num)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (num[i])
-    {   
-        if((num[0] == '-' || num[0] == '+') && i == 0 && ft_isdigit(num[i + 1]))
-            i++;
-        else if(ft_isdigit(num[i]))
-            i++;
-        else
-            return (0);
-    }
-    return (1);
+	i = 0;
+	while (num[i])
+	{
+		if ((num[0] == '-' || num[0] == '+') && i == 0 && \
+		ft_isdigit(num[i + 1]))
+			i++;
+		else if (ft_isdigit(num[i]))
+			i++;
+		else
+			return (0);
+	}
+	return (1);
 }
 
-
-int check_is_sorted(t_llist *head)
+int	check_is_sorted(t_llist *head)
 {
-	t_llist *current;
+	t_llist	*current;
 
-	while(head)
+	while (head)
 	{
 		if (head->next)
 			current = head->next;
 		while (current)
 		{
 			if (current->nbr < head->nbr)
-			    return(0);
+				return (0);
 			current = current->next;
 		}
 		head = head->next;
 	}
-    return(1);
+	return (1);
 }
 
-int check_is_duplicated(t_llist *head)
+int	check_is_duplicated(t_llist *head)
 {
-    t_llist *current = head;
-    while(head)
-    {
-        if (head->next)
-            current = head->next;
-        while (current)
-         {
-            if (current->nbr == head->nbr)
-                return(1);
-            current = current->next;
-        }
-        head = head->next;
-    }
-    return(0);
-}
- 
-void    create_llist(t_llist **head, char **arr)
-{
-    int i;
-    long x;
+	t_llist	*current;
 
-    x = 0;
-    i = 0;
-    while (arr[i])
-    {
+	current = head;
+	while (head)
+	{
+		if (head->next)
+			current = head->next;
+		while (current)
+		{
+			if (current->nbr == head->nbr)
+				return (1);
+			current = current->next;
+		}
+		head = head->next;
+	}
+	return (0);
+}
+
+void	create_llist(t_llist **head, char **arr)
+{
+	int		i;
+	long	x;
+
+	x = 0;
+	i = 0;
+	while (arr[i])
+	{
 		x = ft_atoi(arr[i]);
-        if (x < INT_MIN || x > INT_MAX)
+		if (x < INT_MIN || x > INT_MAX)
 		{
 			ft_putstr_fd("Error\nMAX or MIN\n", 2);
-			break;
+			break ;
 		}
-        ft_lstadd_back(&head ,ft_lstnew(x));
-        i++;
-    }
-    return(head);
+		ft_lstadd_back(head, ft_lstnew(x));
+		i++;
+	}
 }

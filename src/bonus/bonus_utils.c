@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new.c                                              :+:      :+:    :+:   */
+/*   bonus_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/30 19:59:31 by oredoine          #+#    #+#             */
-/*   Updated: 2023/06/17 02:06:17 by oredoine         ###   ########.fr       */
+/*   Created: 2023/06/17 00:29:04 by oredoine          #+#    #+#             */
+/*   Updated: 2023/06/17 00:32:29 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../includes/push_swap.h"
 
-t_llist	*ft_lstnew(int nbr)
+int	ft_strncmp( const char *s1, const char *s2, size_t n)
+
 {
-	t_llist	*newnode;
+	size_t			i;
+	unsigned char	*str1;
+	unsigned char	*str2;
 
-	newnode = malloc(sizeof(t_llist));
-	if (!newnode)
-		return (NULL);
-	newnode->nbr = nbr;
-	newnode->next = NULL;
-	return (newnode);
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
+	i = 0;
+	if (n == 0)
+		return (0);
+	while ((str1[i] && str2[i]) != '\0' && str1[i] == str2[i] && i < n - 1)
+		i++;
+	return (str1[i] - str2[i]);
 }

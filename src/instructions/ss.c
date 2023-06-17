@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new.c                                              :+:      :+:    :+:   */
+/*   ss.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/30 19:59:31 by oredoine          #+#    #+#             */
-/*   Updated: 2023/06/17 02:06:17 by oredoine         ###   ########.fr       */
+/*   Created: 2023/06/17 00:49:58 by oredoine          #+#    #+#             */
+/*   Updated: 2023/06/17 01:55:33 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_llist	*ft_lstnew(int nbr)
+void ss(t_llist **stack_a, t_llist **stack_b)
 {
-	t_llist	*newnode;
-
-	newnode = malloc(sizeof(t_llist));
-	if (!newnode)
-		return (NULL);
-	newnode->nbr = nbr;
-	newnode->next = NULL;
-	return (newnode);
+     swap_first_e(stack_a, 0);
+     swap_first_e(stack_b, 0);
 }

@@ -6,11 +6,17 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 23:10:40 by oredoine          #+#    #+#             */
-/*   Updated: 2022/11/16 15:28:38 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/06/17 02:10:12 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "push_swap.h"
+
+void	ft_putchar_fd(char c, int fd)
+
+{
+	write(fd, &c, 1);
+}
 
 void	ft_putnbr_fd(int n, int fd)
 

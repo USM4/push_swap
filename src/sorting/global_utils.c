@@ -1,19 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   global_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/30 21:48:49 by oredoine          #+#    #+#             */
-/*   Updated: 2022/10/30 22:27:15 by oredoine         ###   ########.fr       */
+/*   Created: 2023/06/16 17:06:26 by oredoine          #+#    #+#             */
+/*   Updated: 2023/06/17 02:18:09 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_putchar_fd(char c, int fd)
-
+int	abs(int n)
 {
-	write(fd, &c, 1);
+	if (n < 0)
+		return (-n);
+	return (n);
+}
+
+void	ft_clean(char **arr)
+{
+	int	i;
+
+	i = 0;
+	while (arr[i])
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
 }
