@@ -6,14 +6,14 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 00:49:58 by oredoine          #+#    #+#             */
-/*   Updated: 2023/06/17 01:55:33 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/06/17 20:46:32 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ss(t_llist **stack_a, t_llist **stack_b)
+void	ss(t_llist **stack_a, t_llist **stack_b)
 {
-     swap_first_e(stack_a, 0);
-     swap_first_e(stack_b, 0);
+	swap_first_e(stack_a, 0);
+	swap_first_e(stack_b, 0);
 }

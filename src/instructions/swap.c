@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 22:04:23 by oredoine          #+#    #+#             */
-/*   Updated: 2023/06/17 02:15:34 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/06/17 20:46:59 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ void	swap_first_e(t_llist **head, int flag)
 	else if (flag == 2)
 		write(1, "sb\n", 3);
 	else
-		return;
+		return ;
 }

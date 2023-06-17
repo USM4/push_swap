@@ -6,13 +6,13 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 17:11:26 by oredoine          #+#    #+#             */
-/*   Updated: 2023/06/17 01:55:21 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/06/17 20:45:23 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_isdigit(int a) 
+int	ft_isdigit(int a)
 {
 	if (a >= 48 && a <= 57)
 		return (1);

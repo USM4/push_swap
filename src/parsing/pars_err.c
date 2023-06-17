@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 18:55:57 by oredoine          #+#    #+#             */
-/*   Updated: 2023/06/17 02:20:02 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/06/17 16:47:28 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,14 @@ void	handling_parsing_errors(t_llist *stack_a)
 		ft_putstr_fd("Error\nOne number is not enough\n", 2);
 		exit(1);
 	}
-	if (check_is_sorted(stack_a))
-	{
-		ft_putstr_fd("Error\nalready sorted\n", 2);
-		exit(1);
-	}
 	if (check_is_duplicated(stack_a))
 	{
 		ft_putstr_fd("Error\nDUPLICATED NUMBERS\n", 2);
+		exit(1);
+	}
+	if (check_is_sorted(stack_a))
+	{
+		ft_putstr_fd("Error\nalready sorted\n", 2);
 		exit(1);
 	}
 }

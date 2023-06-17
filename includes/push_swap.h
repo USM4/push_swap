@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 02:05:31 by oredoine          #+#    #+#             */
-/*   Updated: 2023/06/17 00:52:37 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/06/17 19:57:32 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ t_moves best_move);
 extern void	rotate_to_top(t_llist **stack_x, int nbr, int flag);
 extern void	parsing_numbers(t_llist **stack_a, int ac, char **av);
 extern void	push_swap(t_llist **stack_a, t_llist **stack_b);
-extern void ss(t_llist **stack_a, t_llist **stack_b);
- 
-
+extern void	ss(t_llist **stack_a, t_llist **stack_b);
+extern int	ft_strcmp( const char *s1, const char *s2);
 #endif

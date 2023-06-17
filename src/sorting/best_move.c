@@ -6,12 +6,12 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 17:04:09 by oredoine          #+#    #+#             */
-/*   Updated: 2023/06/17 01:55:26 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/06/17 20:45:14 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
- 
+
 void	rotate_to_top(t_llist **stack_x, int nbr, int flag)
 {
 	int	x;

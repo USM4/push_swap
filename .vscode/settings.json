@@ -6,6 +6,7 @@
         "ratio": "c",
         "limits.h": "c",
         "memory": "c",
-        "utility": "c"
+        "utility": "c",
+        "cstdlib": "c"
     }
 }

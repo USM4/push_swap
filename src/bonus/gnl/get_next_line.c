@@ -6,11 +6,11 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 18:21:43 by oredoine          #+#    #+#             */
-/*   Updated: 2023/06/17 01:05:46 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/06/17 19:58:53 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "./includes/push_swap.h"
 
 int	look_for_new_line(char *r)
 {
