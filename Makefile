@@ -30,7 +30,7 @@ clean :
 	rm -f $(SOURCES) $(MAIN) $(SRC_BNS) 
 
 fclean : 
-	rm -f $(SOURCES) $(MAIN) $(SRC_BNS) $(NAME) $(BONUS)
+	rm -f $(SOURCES) $(MAIN) $(SRC_BNS) $(NAME) $(BONUS) 
 
 re : fclean all
 

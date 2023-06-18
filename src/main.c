@@ -6,23 +6,11 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 02:08:10 by oredoine          #+#    #+#             */
-/*   Updated: 2023/06/17 20:42:15 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/06/18 21:16:31 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// void	print_list(t_llist *head)
-// {
-// 	while (head)
-// 	{
-// 		printf("%d", head->nbr);
-// 		if (head->next)
-// 			printf(" -> ");
-// 		head = head->next;
-// 	}
-// 	printf("\n");
-// }
 
 void	push_swap(t_llist **stack_a, t_llist **stack_b)
 {

@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 17:11:26 by oredoine          #+#    #+#             */
-/*   Updated: 2023/06/17 20:45:23 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/06/18 20:22:38 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	create_llist(t_llist **head, char **arr)
 		if (x < INT_MIN || x > INT_MAX)
 		{
 			ft_putstr_fd("Error\nMAX or MIN\n", 2);
-			break ;
+			exit(1);
 		}
 		ft_lstadd_back(head, ft_lstnew(x));
 		i++;
